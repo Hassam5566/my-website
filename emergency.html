@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emergency</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <h1>AI Emergency Care</h1>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About AI</a></li>
+        <li><a href="emergency.html">Emergency</a></li>
+        <li><a href="monitor.html">Monitoring</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<header class="hero">
+    <h2>🚨 Emergency Assistance</h2>
+    <p>AI-powered instant medical support</p>
+</header>
+
+<!-- 🔥 IMAGE ROW -->
+<section class="image-row">
+    <img src="images/emergency.jpg" alt="">
+    <img src="images/nhs.jpg" alt="">
+    <img src="images/ambulance.jpg" alt="">
+</section>
+
+<!-- 🔥 MAIN CONTENT -->
+<div class="container">
+
+    <div class="card">
+        <h3>🩺 Symptom Checker</h3>
+        <input type="text" id="userInput" placeholder="Enter symptoms (e.g. chest pain)">
+        <button onclick="sendMessage()">Analyse</button>
+        <div id="response"></div>
+    </div>
+
+    <div class="card">
+        <h3>⚡ Emergency Actions</h3>
+        <button onclick="activateEmergency()">🚨 Call Emergency</button>
+        <button onclick="showFirstAid()">🧰 First Aid</button>
+        <div id="firstAid"></div>
+    </div>
+
+    <div class="card">
+        <h3>📊 Risk Status</h3>
+        <div id="riskBox" class="status good">Waiting...</div>
+    </div>
+
+</div>
+
+<!-- 🔥 EXTRA INFO -->
+<section class="info">
+    <h2>Emergency AI Benefits</h2>
+    <ul>
+        <li>✔ Instant diagnosis support</li>
+        <li>✔ Faster emergency response</li>
+        <li>✔ Real-time decision making</li>
+        <li>✔ Life-saving assistance</li>
+    </ul>
+</section>
+
+<footer>© 2026 AI Emergency Care</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

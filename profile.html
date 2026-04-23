@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - AI Emergency Care</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<nav>
+    <h1>AI Emergency Care</h1>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About AI</a></li>
+        <li><a href="emergency.html">Emergency</a></li>
+        <li><a href="monitor.html">Monitoring</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+    <h2>👤 User Medical Profile</h2>
+    <p>Manage your personal and medical information</p>
+</header>
+
+<!-- ================= PROFILE SECTION ================= -->
+<section class="split-section">
+
+    <!-- TEXT + FORM -->
+    <div class="split-text">
+        <h3>Enter Your Details</h3>
+
+        <form onsubmit="saveProfile(event)">
+
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your name" required>
+
+            <label>Age</label>
+            <input type="number" placeholder="Enter your age" required>
+
+            <label>Medical History</label>
+            <textarea placeholder="Describe your medical history" required></textarea>
+
+            <label>Allergies</label>
+            <input type="text" placeholder="Any allergies?">
+
+            <button type="submit">Save Profile</button>
+
+        </form>
+
+    </div>
+
+    <!-- IMAGE -->
+    <div class="split-image">
+        <img src="images/identity.jpg" alt="User Profile">
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>© 2026 AI Emergency Care</p>
+</footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script src="script.js"></script>
+
+<script>
+function saveProfile(event) {
+    event.preventDefault();
+    alert("✅ Profile saved successfully!");
+}
+</script>
+
+</body>
+</html>

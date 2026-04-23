@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - AI Emergency Care</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<nav>
+    <h1>AI Emergency Care</h1>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About AI</a></li>
+        <li><a href="emergency.html">Emergency</a></li>
+        <li><a href="monitor.html">Monitoring</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+    <h2>📞 Contact & Support</h2>
+    <p>Reach out to our AI healthcare support team</p>
+</header>
+
+<!-- ================= IMAGE ROW ================= -->
+<section class="image-row">
+    <img src="images/contact1.jpg" alt="Support Team">
+    <img src="images/contact2.jpg" alt="Healthcare Assistance">
+</section>
+
+<!-- ================= FORM ================= -->
+<div class="container">
+
+    <div class="card">
+        <h3>Send Message</h3>
+
+        <form onsubmit="return validateContactForm()">
+
+            <label>First Name</label>
+            <input type="text" id="firstName" required>
+
+            <label>Middle Name (Optional)</label>
+            <input type="text" id="middleName">
+
+            <label>Last Name</label>
+            <input type="text" id="lastName" required>
+
+            <label>Email</label>
+            <input type="email" id="email" required>
+
+            <label>Message</label>
+            <textarea id="message" required></textarea>
+
+            <button type="submit">Send Message</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>© 2026 AI Emergency Care</p>
+</footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+
+function validateContactForm() {
+
+    let first = document.getElementById("firstName").value.trim();
+    let middle = document.getElementById("middleName").value.trim();
+    let last = document.getElementById("lastName").value.trim();
+    let email = document.getElementById("email").value.trim();
+
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
+
+    // ❌ Prevent email in name fields
+    if (first.includes("@") || middle.includes("@") || last.includes("@")) {
+        alert("❌ Invalid format! Please enter your name correctly (not email).");
+        return false;
+    }
+
+    // ❌ Invalid email
+    if (!emailPattern.test(email)) {
+        alert("❌ Invalid email format! Please enter a valid Gmail address.");
+        return false;
+    }
+
+    // ✅ Success
+    alert("✅ Message sent successfully!");
+    return false; // prevent reload
+}
+
+</script>
+
+</body>
+</html>

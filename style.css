@@ -1,0 +1,314 @@
+/* GOOGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* ================= GLOBAL ================= */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background: #F9FAFB;
+    line-height: 1.6;
+}
+
+/* ================= NAVBAR ================= */
+nav {
+    background: #1E3A8A;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+/* ================= HERO ================= */
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+    color: white;
+    background: linear-gradient(135deg, #1E3A8A, #06B6D4);
+}
+
+/* ================= SPLIT SECTION ================= */
+.split-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    width: 85%;
+    margin: 50px auto;
+}
+
+.split-text {
+    flex: 1;
+}
+
+.split-text ul {
+    padding-left: 20px;
+}
+
+.split-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.split-image img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ================= IMAGE SECTION ================= */
+.image-section {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.image-section img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+}
+
+/* ================= INFO ================= */
+.info {
+    width: 85%;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ================= TABLE ================= */
+.table-section {
+    width: 85%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.table-container {
+    max-width: 900px;
+    margin: auto;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+}
+
+thead {
+    background: #1E3A8A;
+    color: white;
+}
+
+th, td {
+    padding: 14px;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+tbody tr:hover {
+    background: #e0f2fe;
+}
+
+/* ================= CARDS ================= */
+.cards {
+    width: 85%;
+    margin: 30px auto;
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* ================= CONTACT PAGE FIX ================= */
+.container {
+    width: 85%;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.container .card {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* ================= FORM ================= */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 10px;
+    font-weight: 500;
+    color: #1E3A8A;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #06B6D4;
+    box-shadow: 0 0 5px rgba(6, 182, 212, 0.4);
+}
+
+form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* ================= BUTTON ================= */
+button {
+    background: #DC2626;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    background: #b91c1c;
+}
+
+/* ================= STATUS ================= */
+.status {
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+}
+
+.good {
+    background: #16A34A;
+}
+
+.warning {
+    background: #DC2626;
+}
+
+/* ================= IMAGE ROW ================= */
+.image-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.image-row img {
+    width: 230px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.image-row img:hover {
+    transform: scale(1.05);
+}
+
+/* ================= RESPONSE ================= */
+#response {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    text-align: center;
+    background: #1E3A8A;
+    color: white;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+    .split-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .split-image {
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .container .card {
+        padding: 15px;
+    }
+
+    .image-row img {
+        width: 90%;
+        height: auto;
+    }
+
+    .image-section img {
+        max-width: 90%;
+    }
+}
