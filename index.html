@@ -9,6 +9,7 @@
 
 <body>
 
+<!-- ================= NAVIGATION ================= -->
 <nav>
     <h1>AI Emergency Care</h1>
     <ul>
@@ -21,13 +22,18 @@
     </ul>
 </nav>
 
+<!-- ================= HERO ================= -->
 <header class="hero">
     <h2>Smart Emergency Healthcare Powered by AI</h2>
     <p>AI-based system for instant medical support</p>
-    <button id="emergencyBtn">🚨 Activate Emergency</button>
+
+    <!-- ✅ FIXED BUTTON -->
+    <button onclick="activateEmergency()" aria-label="Activate emergency alert">
+        🚨 Activate Emergency
+    </button>
 </header>
 
-<!-- IMAGE + TEXT SIDE BY SIDE -->
+<!-- ================= SPLIT SECTION ================= -->
 <section class="split-section">
 
     <div class="split-text">
@@ -46,12 +52,12 @@
     </div>
 
     <div class="split-image">
-        <img src="ai.jpg" alt="AI Healthcare">
+        <img src="images/ai.jpg" alt="AI Healthcare system illustration">
     </div>
 
 </section>
 
-<!-- TABLE -->
+<!-- ================= TABLE ================= -->
 <section class="table-section">
     <h2>AI in Healthcare Overview</h2>
 
@@ -94,16 +100,13 @@
     </div>
 </section>
 
+<!-- ================= FOOTER ================= -->
 <footer>
     <p>© 2026 AI Emergency Care</p>
 </footer>
 
+<!-- ================= SCRIPTS ================= -->
 <script src="script.js"></script>
-<script>
-document.getElementById("emergencyBtn").onclick = () => {
-    alert("🚨 Emergency Activated!");
-};
-</script>
 
 </body>
 </html>
