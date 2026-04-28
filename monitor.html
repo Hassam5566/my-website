@@ -16,7 +16,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About AI</a></li>
         <li><a href="emergency.html">Emergency</a></li>
-        <li><a href="monitor.html">Monitoring</a></li>
+        <li><a href="monitor.html" class="active">Monitoring</a></li>
         <li><a href="profile.html">Profile</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -24,23 +24,29 @@
 
 <!-- ================= HERO ================= -->
 <header class="hero">
-    <h2>Live Patient Monitoring</h2>
+    <h2>📊 Live Patient Monitoring</h2>
     <p>Track real-time health data powered by AI</p>
 </header>
 
-<!-- 🔥 IMAGE (PROPERLY CONTROLLED) -->
+<!-- ================= SPLIT SECTION ================= -->
 <section class="split-section">
 
     <div class="split-text">
         <h2>Smart Monitoring System</h2>
         <p>
             Our AI continuously tracks patient vitals and provides real-time alerts
-            for any abnormal conditions, ensuring faster medical response.
+            for abnormal conditions, ensuring faster medical response.
         </p>
+
+        <!-- ✅ Added helpful info -->
+        <ul>
+            <li>✔ Normal Heart Rate: 60–100 BPM</li>
+            <li>✔ Normal Oxygen Level: 95–100%</li>
+        </ul>
     </div>
 
     <div class="split-image">
-        <img src="patient.jpg" alt="Patient Monitoring">
+        <img src="images/patient.jpg" alt="Patient monitoring system dashboard">
     </div>
 
 </section>
@@ -48,27 +54,35 @@
 <!-- ================= MAIN CONTENT ================= -->
 <div class="container">
 
+    <!-- LIVE DATA -->
     <div class="card">
+
         <h2>📊 Live Health Data</h2>
 
         <ul id="monitorData">
-            <li>❤️ Heart Rate: <strong id="heart">78</strong> BPM</li>
-            <li>🫁 Oxygen Level: <strong id="oxygen">98</strong>%</li>
+            <li>❤️ Heart Rate: <strong id="heart">--</strong> BPM</li>
+            <li>🫁 Oxygen Level: <strong id="oxygen">--</strong>%</li>
         </ul>
 
+        <!-- ✅ Better default message -->
         <div id="statusBox" class="status good">
-            Status: Stable
+            Waiting for live data...
         </div>
+
     </div>
 
+    <!-- BENEFITS -->
     <div class="card">
+
         <h3>💡 AI Monitoring Benefits</h3>
+
         <ul>
             <li>✔ Continuous patient tracking</li>
             <li>✔ Early detection of health issues</li>
             <li>✔ Instant alerts for abnormal values</li>
             <li>✔ Improved emergency response</li>
         </ul>
+
     </div>
 
 </div>
@@ -79,6 +93,24 @@
 </footer>
 
 <script src="script.js"></script>
+
+<!-- ✅ OPTIONAL: Smooth visual update effect -->
+<script>
+setInterval(() => {
+    const heart = document.getElementById("heart");
+    const oxygen = document.getElementById("oxygen");
+
+    if (heart && oxygen) {
+        heart.style.transform = "scale(1.1)";
+        oxygen.style.transform = "scale(1.1)";
+
+        setTimeout(() => {
+            heart.style.transform = "scale(1)";
+            oxygen.style.transform = "scale(1)";
+        }, 200);
+    }
+}, 3000);
+</script>
 
 </body>
 </html>
