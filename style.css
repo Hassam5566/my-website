@@ -1,22 +1,34 @@
-/* GOOGLE FONT */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+/* ================= GOOGLE FONT ================= */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 /* ================= GLOBAL ================= */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    background: #F9FAFB;
+    background-color: #F9FAFB;
     line-height: 1.6;
+    color: #1f2937;
 }
 
-/* ================= NAVBAR ================= */
+/* ================= NAVIGATION ================= */
 nav {
-    background: #1E3A8A;
-    color: white;
+    background-color: #1E3A8A;
+    color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav h1 {
+    font-size: 20px;
 }
 
 nav ul {
@@ -28,21 +40,33 @@ nav ul {
 }
 
 nav a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 500;
-    transition: 0.3s;
+    position: relative;
+    transition: opacity 0.3s ease;
 }
 
 nav a:hover {
     opacity: 0.8;
 }
 
+/* ✅ Active link */
+nav a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #06B6D4;
+}
+
 /* ================= HERO ================= */
 .hero {
     text-align: center;
-    padding: 70px 20px;
-    color: white;
+    padding: 80px 20px;
+    color: #ffffff;
     background: linear-gradient(135deg, #1E3A8A, #06B6D4);
 }
 
@@ -72,10 +96,9 @@ nav a:hover {
 
 .split-image img {
     width: 100%;
-    max-width: 220px;
-    height: auto;
+    max-width: 240px;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* ================= IMAGE SECTION ================= */
@@ -86,10 +109,9 @@ nav a:hover {
 
 .image-section img {
     width: 100%;
-    max-width: 420px;
-    height: auto;
+    max-width: 450px;
     border-radius: 12px;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* ================= INFO ================= */
@@ -115,15 +137,15 @@ nav a:hover {
 table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
+    background-color: #ffffff;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 thead {
-    background: #1E3A8A;
-    color: white;
+    background-color: #1E3A8A;
+    color: #ffffff;
 }
 
 th, td {
@@ -132,11 +154,11 @@ th, td {
 }
 
 tbody tr:nth-child(even) {
-    background: #f9fafb;
+    background-color: #f9fafb;
 }
 
 tbody tr:hover {
-    background: #e0f2fe;
+    background-color: #e0f2fe;
 }
 
 /* ================= CARDS ================= */
@@ -149,28 +171,31 @@ tbody tr:hover {
 
 .card {
     flex: 1;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
+    background-color: #ffffff;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* ================= CONTACT PAGE FIX ================= */
+/* ================= CONTAINER ================= */
 .container {
     width: 85%;
     margin: 40px auto;
     display: flex;
     justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .container .card {
-    width: 100%;
     max-width: 600px;
+    width: 100%;
 }
 
 /* ================= FORM ================= */
@@ -189,55 +214,58 @@ form input,
 form textarea {
     width: 100%;
     padding: 12px;
-    border-radius: 6px;
+    border-radius: 8px;
     border: 1px solid #ccc;
     margin-bottom: 10px;
     font-family: inherit;
-    transition: 0.3s;
+    transition: all 0.25s ease;
 }
 
 form input:focus,
 form textarea:focus {
     outline: none;
     border-color: #06B6D4;
-    box-shadow: 0 0 5px rgba(6, 182, 212, 0.4);
+    box-shadow: 0 0 8px rgba(6, 182, 212, 0.3);
 }
 
 form textarea {
     min-height: 120px;
-    resize: vertical;
 }
 
 /* ================= BUTTON ================= */
 button {
-    background: #DC2626;
-    color: white;
+    background: linear-gradient(135deg, #DC2626, #ef4444);
+    color: #ffffff;
     padding: 12px;
-    border-radius: 6px;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
-    transition: 0.3s;
     width: 100%;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background: #b91c1c;
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #b91c1c, #dc2626);
 }
 
 /* ================= STATUS ================= */
 .status {
     padding: 15px;
     border-radius: 8px;
-    color: white;
+    color: #ffffff;
     font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
 }
 
 .good {
-    background: #16A34A;
+    background-color: #16A34A;
 }
 
 .warning {
-    background: #DC2626;
+    background-color: #DC2626;
 }
 
 /* ================= IMAGE ROW ================= */
@@ -247,7 +275,6 @@ button:hover {
     gap: 20px;
     padding: 20px;
     flex-wrap: wrap;
-    margin-top: 20px;
 }
 
 .image-row img {
@@ -255,12 +282,12 @@ button:hover {
     height: 150px;
     object-fit: cover;
     border-radius: 12px;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
-    transition: 0.3s;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
 .image-row img:hover {
-    transform: scale(1.05);
+    transform: scale(1.07);
 }
 
 /* ================= RESPONSE ================= */
@@ -272,8 +299,8 @@ button:hover {
 /* ================= FOOTER ================= */
 footer {
     text-align: center;
-    background: #1E3A8A;
-    color: white;
+    background-color: #1E3A8A;
+    color: #ffffff;
     padding: 15px;
     margin-top: 40px;
 }
@@ -297,10 +324,6 @@ footer {
 
     .container {
         width: 90%;
-    }
-
-    .container .card {
-        padding: 15px;
     }
 
     .image-row img {
