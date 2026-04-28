@@ -31,33 +31,39 @@
 <!-- ================= PROFILE SECTION ================= -->
 <section class="split-section">
 
-    <!-- TEXT + FORM -->
+    <!-- FORM -->
     <div class="split-text">
         <h3>Enter Your Details</h3>
 
+        <!-- ✅ FIXED FORM -->
         <form onsubmit="saveProfile(event)">
 
-            <label>Full Name</label>
-            <input type="text" placeholder="Enter your name" required>
+            <label>First Name</label>
+            <input type="text" id="firstName" placeholder="Enter first name" required>
+
+            <label>Last Name</label>
+            <input type="text" id="lastName" placeholder="Enter last name" required>
+
+            <label>Email</label>
+            <input type="text" id="email" placeholder="Enter email" required>
 
             <label>Age</label>
-            <input type="number" placeholder="Enter your age" required>
+            <input type="number" id="age" placeholder="Enter your age" required>
 
             <label>Medical History</label>
-            <textarea placeholder="Describe your medical history" required></textarea>
+            <textarea id="history" placeholder="Describe your medical history"></textarea>
 
             <label>Allergies</label>
-            <input type="text" placeholder="Any allergies?">
+            <input type="text" id="allergies" placeholder="Any allergies?">
 
             <button type="submit">Save Profile</button>
 
         </form>
-
     </div>
 
     <!-- IMAGE -->
     <div class="split-image">
-        <img src="identity.jpg" alt="User Profile">
+        <img src="images/identity.jpg" alt="User medical profile illustration">
     </div>
 
 </section>
@@ -67,15 +73,7 @@
     <p>© 2026 AI Emergency Care</p>
 </footer>
 
-<!-- ================= JAVASCRIPT ================= -->
 <script src="script.js"></script>
-
-<script>
-function saveProfile(event) {
-    event.preventDefault();
-    alert("✅ Profile saved successfully!");
-}
-</script>
 
 </body>
 </html>
