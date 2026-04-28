@@ -1,28 +1,36 @@
 // ===============================
-// 🚨 Emergency
+// 🔔 Reusable Alert Helper
+// ===============================
+function showAlert(message) {
+    alert(message);
+}
+
+
+// ===============================
+// 🚨 Emergency System
 // ===============================
 function activateEmergency() {
-
-    let confirmAction = confirm("🚨 Do you want to contact emergency services?");
-
+    const confirmAction = confirm("🚨 Do you want to contact emergency services?");
     if (confirmAction) {
-        alert("🚑 Emergency services have been notified!");
+        showAlert("🚑 Emergency services have been notified!");
     }
 }
 
 
 // ===============================
-// 🤖 AI Chatbot + Risk System
+// 🤖 AI Symptom Checker (Improved)
 // ===============================
 function sendMessage() {
 
-    let inputField = document.getElementById("userInput");
-    let input = inputField.value.toLowerCase();
-    let output = document.getElementById("response");
+    const inputField = document.getElementById("userInput");
+    const output = document.getElementById("response");
 
-    // Clear previous result
+    if (!inputField || !output) return;
+
+    const input = inputField.value.trim().toLowerCase();
+
     output.innerHTML = "";
-    
+
     if (!input) {
         output.innerHTML = "❌ Please enter symptoms.";
         return;
@@ -32,58 +40,66 @@ function sendMessage() {
 
     setTimeout(() => {
 
-        if (input.includes("chest pain")) {
-            output.innerHTML = "⚠️ High Risk: Possible heart issue!";
-            updateRisk("high");
+        let risk = "medium";
+        let message = "ℹ️ Symptoms unclear. Consult a doctor.";
+
+        // 🔍 Improved keyword detection
+        if (input.includes("chest") || input.includes("heart")) {
+            message = "⚠️ High Risk: Possible heart-related issue!";
+            risk = "high";
         }
-        else if (input.includes("breathing")) {
-            output.innerHTML = "⚠️ Critical: Breathing difficulty detected!";
-            updateRisk("high");
+        else if (input.includes("breath") || input.includes("asthma")) {
+            message = "⚠️ Critical: Breathing issue detected!";
+            risk = "high";
         }
-        else if (input.includes("fever")) {
-            output.innerHTML = "🌡️ Mild condition: Monitor temperature.";
-            updateRisk("low");
-        }
-        else {
-            output.innerHTML = "ℹ️ Symptoms unclear. Consult a doctor.";
-            updateRisk("medium");
+        else if (input.includes("fever") || input.includes("cold")) {
+            message = "🌡️ Mild condition: Monitor symptoms.";
+            risk = "low";
         }
 
-    }, 1500);
+        output.innerHTML = message;
+        updateRisk(risk);
+
+    }, 1200);
 }
 
 
 // ===============================
-// 📊 Risk Level Controller
+// 📊 Risk Level System
 // ===============================
 function updateRisk(level) {
 
-    let riskBox = document.getElementById("riskBox");
-
+    const riskBox = document.getElementById("riskBox");
     if (!riskBox) return;
 
-    if (level === "high") {
-        riskBox.className = "status warning";
-        riskBox.innerHTML = "🚨 HIGH RISK - Immediate action required!";
-    }
-    else if (level === "medium") {
-        riskBox.className = "status warning";
-        riskBox.innerHTML = "🟡 MEDIUM RISK - Consult doctor.";
-    }
-    else {
-        riskBox.className = "status good";
-        riskBox.innerHTML = "🟢 LOW RISK - Monitor condition.";
-    }
+    const states = {
+        high: {
+            class: "status warning",
+            text: "🚨 HIGH RISK - Immediate action required!"
+        },
+        medium: {
+            class: "status warning",
+            text: "🟡 MEDIUM RISK - Consult doctor."
+        },
+        low: {
+            class: "status good",
+            text: "🟢 LOW RISK - Monitor condition."
+        }
+    };
+
+    const state = states[level] || states.low;
+
+    riskBox.className = state.class;
+    riskBox.textContent = state.text;
 }
 
 
 // ===============================
-// 🧰 First Aid Tips
+// 🧰 First Aid System
 // ===============================
 function showFirstAid() {
 
-    let box = document.getElementById("firstAid");
-
+    const box = document.getElementById("firstAid");
     if (!box) return;
 
     box.innerHTML = `
@@ -98,69 +114,111 @@ function showFirstAid() {
 
 
 // ===============================
-// 📧 CONTACT FORM VALIDATION (NEW)
+// 📧 Validation Helpers
 // ===============================
-function validateContactForm() {
+function isEmail(value = "") {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
 
-    let firstName = document.getElementById("firstName").value.trim();
-    let middleName = document.getElementById("middleName").value.trim();
-    let lastName = document.getElementById("lastName").value.trim();
-    let email = document.getElementById("email").value.trim();
-
-    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-
-    // 🚫 Check if user entered email in name fields
-    if (firstName.includes("@") || middleName.includes("@") || lastName.includes("@")) {
-        alert("❌ Invalid format! Please enter your name correctly (not email).");
-        return false;
-    }
-
-    // 🚫 Email validation
-    if (!emailPattern.test(email)) {
-        alert("❌ Invalid email address! Please enter a valid Gmail.");
-        return false;
-    }
-
-    // ✅ Success
-    alert("✅ Message sent successfully!");
-    return false; // prevent reload
+function isValidName(value = "") {
+    return /^[a-zA-Z\s]+$/.test(value);
 }
 
 
 // ===============================
-// 👤 PROFILE SAVE MESSAGE (NEW)
+// 📧 Contact Form Validation
 // ===============================
-function saveProfile(event) {
-
+function validateContactForm(event) {
     event.preventDefault();
 
-    alert("✅ Profile saved successfully!");
+    const firstName = document.getElementById("firstName")?.value?.trim() || "";
+    const middleName = document.getElementById("middleName")?.value?.trim() || "";
+    const lastName = document.getElementById("lastName")?.value?.trim() || "";
+    const email = document.getElementById("email")?.value?.trim() || "";
+    const message = document.getElementById("message")?.value?.trim() || "";
+
+    if (!firstName || !lastName || !email || !message) {
+        showAlert("❌ Please fill all required fields.");
+        return;
+    }
+
+    if (isEmail(firstName) || isEmail(middleName) || isEmail(lastName)) {
+        showAlert("❌ Name fields should NOT contain an email!");
+        return;
+    }
+
+    if (!isValidName(firstName) || !isValidName(lastName) || (middleName && !isValidName(middleName))) {
+        showAlert("❌ Names must contain only letters.");
+        return;
+    }
+
+    if (!isEmail(email)) {
+        showAlert("❌ Enter a valid email address!");
+        return;
+    }
+
+    showAlert("✅ Message sent successfully!");
+    event.target.reset();
 }
 
 
 // ===============================
-// 📊 LIVE MONITORING SIMULATION
+// 👤 Profile Save System
+// ===============================
+function saveProfile(event) {
+    event.preventDefault();
+
+    const firstName = document.getElementById("firstName")?.value?.trim() || "";
+    const lastName = document.getElementById("lastName")?.value?.trim() || "";
+    const email = document.getElementById("email")?.value?.trim() || "";
+
+    if (!firstName || !lastName || !email) {
+        showAlert("❌ Please complete all fields.");
+        return;
+    }
+
+    if (isEmail(firstName) || isEmail(lastName)) {
+        showAlert("❌ Name fields should NOT contain an email!");
+        return;
+    }
+
+    if (!isValidName(firstName) || !isValidName(lastName)) {
+        showAlert("❌ Names must contain only letters.");
+        return;
+    }
+
+    if (!isEmail(email)) {
+        showAlert("❌ Enter a valid email!");
+        return;
+    }
+
+    showAlert("✅ Profile saved successfully!");
+}
+
+
+// ===============================
+// 📊 Live Monitoring Simulation
 // ===============================
 setInterval(() => {
 
-    let heart = document.getElementById("heart");
-    let oxygen = document.getElementById("oxygen");
-    let status = document.getElementById("statusBox");
+    const heart = document.getElementById("heart");
+    const oxygen = document.getElementById("oxygen");
+    const status = document.getElementById("statusBox");
 
     if (!heart || !oxygen || !status) return;
 
-    let hr = Math.floor(Math.random() * 40) + 60;
-    let ox = Math.floor(Math.random() * 5) + 95;
+    const hr = Math.floor(Math.random() * 40) + 60;
+    const ox = Math.floor(Math.random() * 5) + 95;
 
-    heart.innerHTML = hr;
-    oxygen.innerHTML = ox;
+    heart.textContent = hr;
+    oxygen.textContent = ox;
 
     if (hr > 100 || ox < 95) {
         status.className = "status warning";
-        status.innerHTML = "⚠️ Warning: Abnormal Condition";
+        status.textContent = "⚠️ Warning: Abnormal Condition";
     } else {
         status.className = "status good";
-        status.innerHTML = "✅ Stable";
+        status.textContent = "✅ Stable";
     }
 
 }, 3000);
